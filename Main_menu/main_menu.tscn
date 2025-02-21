@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://tpx5d4i0s65y"]
+
+[ext_resource type="Script" path="res://Main_menu/main_menu.gd" id="1_w3440"]
+[ext_resource type="AudioStream" uid="uid://y4rfybvotfl8" path="res://Assets/Music_menu/OGG/Retro11.ogg" id="2_btgtd"]
+[ext_resource type="PackedScene" uid="uid://dnuvd053m3y2b" path="res://Main_menu/menu.tscn" id="2_eotl2"]
+[ext_resource type="AudioStream" uid="uid://dsaya3twjs58w" path="res://Assets/Music/Ogg/Pixel 11.ogg" id="3_ne4ta"]
+[ext_resource type="AudioStream" uid="uid://dvsuje3sldlnn" path="res://Assets/Music_menu/OGG/Retro12.ogg" id="5_j1fis"]
+
+[node name="Main_menu" type="Node2D"]
+script = ExtResource("1_w3440")
+
+[node name="Play" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 374.0
+offset_top = 194.0
+offset_right = 702.0
+offset_bottom = 292.0
+theme_override_font_sizes/font_size = 50
+text = "Играть"
+
+[node name="Quit" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 374.0
+offset_top = 317.0
+offset_right = 702.0
+offset_bottom = 415.0
+theme_override_font_sizes/font_size = 50
+text = "Выход"
+
+[node name="Menu" parent="." instance=ExtResource("2_eotl2")]
+layer = -1
+
+[node name="Pixel11" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(549, 296)
+stream = ExtResource("3_ne4ta")
+volume_db = -40.0
+autoplay = true
+
+[node name="Retro11" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_btgtd")
+volume_db = -10.0
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+enabled = false
+blend_mode = 1
+range_layer_min = -1
+
+[node name="Retro12" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_j1fis")
+volume_db = -10.0
+
+[connection signal="mouse_entered" from="Play" to="." method="_on_play_mouse_entered"]
+[connection signal="pressed" from="Play" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
