@@ -1,5 +1,6 @@
 extends Node2D
 
+# @onready var next_scene = preload("res://Levels/Level_1.tscn")
 @onready var music = $Pixel11
 @onready var music_button = $Retro11
 @onready var music_button_click = $Retro12
@@ -8,7 +9,6 @@ extends Node2D
 @onready var quit_button = $Quit
 
 var work_menu: bool = false
-
 
 func _ready() -> void:
 	light.enabled = true
@@ -43,15 +43,15 @@ func _on_button_pressed() -> void:
 		
 		await tween_quit_button.finished
 		
-		var tween_scen = get_tree().create_tween()
 		var tween_music = get_tree().create_tween()
-		tween_scen.tween_property(light, "energy", 1.0, 1)
 		tween_music.tween_property(music, "volume_db", -50, 2)
+		PerehodScene.transition()
 		
-		await tween_music.finished
+		await PerehodScene.on_transition_finished
 		
 		music.stop()
 		get_tree().change_scene_to_file("res://Levels/Level_1.tscn")
+
 
 
 func _on_quit_pressed() -> void:
