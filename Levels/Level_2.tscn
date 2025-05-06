@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://wy7b3f3qlywx"]
+
+[ext_resource type="Texture2D" uid="uid://ckq16f1wlb5xx" path="res://Assets/Ostrova/World/sky.png" id="1_te18k"]
+[ext_resource type="Texture2D" uid="uid://bubiokecv02fh" path="res://Assets/Ostrova/World/clouds.png" id="2_d0gli"]
+[ext_resource type="Texture2D" uid="uid://b56bqv84uu7ja" path="res://Assets/Ostrova/World/sea.png" id="3_u4s5c"]
+[ext_resource type="Texture2D" uid="uid://d0imarthe77sx" path="res://Assets/Ostrova/World/far-grounds.png" id="4_f1eer"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sky2" type="Sprite2D" parent="."]
+position = Vector2(1717, 152)
+scale = Vector2(105.43, 1)
+texture = ExtResource("1_te18k")
+
+[node name="Sky" type="Sprite2D" parent="."]
+position = Vector2(577, 155)
+scale = Vector2(10.2679, 1)
+texture = ExtResource("1_te18k")
+
+[node name="Clouds3" type="Sprite2D" parent="."]
+position = Vector2(1342, 287)
+texture = ExtResource("2_d0gli")
+
+[node name="Clouds2" type="Sprite2D" parent="."]
+position = Vector2(815, 281)
+texture = ExtResource("2_d0gli")
+
+[node name="Clouds4" type="Sprite2D" parent="."]
+position = Vector2(1883, 291)
+texture = ExtResource("2_d0gli")
+
+[node name="Clouds" type="Sprite2D" parent="."]
+position = Vector2(272, 276)
+texture = ExtResource("2_d0gli")
+
+[node name="Sea" type="Sprite2D" parent="."]
+position = Vector2(822.189, 503.4)
+scale = Vector2(3.28994, 2.76586)
+texture = ExtResource("3_u4s5c")
+offset = Vector2(45, 7)
+
+[node name="Sea3" type="Sprite2D" parent="."]
+position = Vector2(209, 522)
+scale = Vector2(3.73214, 2.72917)
+texture = ExtResource("3_u4s5c")
+
+[node name="Sea2" type="Sprite2D" parent="."]
+position = Vector2(603, 521)
+scale = Vector2(3.33482, 2.70833)
+texture = ExtResource("3_u4s5c")
+
+[node name="Sea4" type="Sprite2D" parent="."]
+position = Vector2(1188, 515.76)
+scale = Vector2(3.28994, 3.07709)
+texture = ExtResource("3_u4s5c")
+offset = Vector2(45, 7)
+
+[node name="Sea5" type="Sprite2D" parent="."]
+position = Vector2(1837.5, 520)
+scale = Vector2(5.66964, 2.72917)
+texture = ExtResource("3_u4s5c")
+
+[node name="Far-grounds2" type="Sprite2D" parent="."]
+position = Vector2(904, 459)
+texture = ExtResource("4_f1eer")
+
+[node name="Far-grounds" type="Sprite2D" parent="."]
+position = Vector2(297, 459)
+texture = ExtResource("4_f1eer")
+
+[node name="+0" type="TileMapLayer" parent="."]
+
+[node name="+1" type="TileMapLayer" parent="+0"]
