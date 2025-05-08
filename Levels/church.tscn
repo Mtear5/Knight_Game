@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=4 uid="uid://6g7k0kyprh16"]
+[gd_scene load_steps=17 format=4 uid="uid://6g7k0kyprh16"]
 
 [ext_resource type="Script" path="res://Levels/church.gd" id="1_5hlom"]
 [ext_resource type="Texture2D" uid="uid://c2e2rw4iymfkq" path="res://Assets/Derevnya/Assets/Tiles.png" id="1_ae2o1"]
 [ext_resource type="PackedScene" uid="uid://bdcc240cp418t" path="res://Player/player.tscn" id="2_3gg8e"]
 [ext_resource type="FontFile" uid="uid://dgkdb3bgk26r" path="res://Assets/Monocraft.otf" id="4_nw5bp"]
 [ext_resource type="AudioStream" uid="uid://ippmt0q0ydie" path="res://Assets/Music_church/a-robust-crew(chosic.com).mp3" id="5_y1pfd"]
+[ext_resource type="PackedScene" uid="uid://dh70lc658ndrl" path="res://PLay_NPC/CHruch_NPC/chruch_npc.tscn" id="6_3x8pf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_56skn"]
 texture = ExtResource("1_ae2o1")
@@ -1380,7 +1381,7 @@ position = Vector2(853, 577)
 
 [node name="Camera2D" parent="CharacterBody2D" index="2"]
 limit_left = 505
-limit_right = 1165
+limit_right = 1151
 limit_bottom = 662
 
 [node name="Label" type="Label" parent="CharacterBody2D"]
@@ -1425,6 +1426,9 @@ shape = SubResource("RectangleShape2D_enayq")
 stream = ExtResource("5_y1pfd")
 volume_db = -40.0
 autoplay = true
+
+[node name="Chruch_NPC" parent="." instance=ExtResource("6_3x8pf")]
+position = Vector2(644, 625)
 
 [connection signal="body_entered" from="Door_in_derevna" to="." method="_on_door_in_derevna_body_entered"]
 [connection signal="body_exited" from="Door_in_derevna" to="." method="_on_door_in_derevna_body_exited"]

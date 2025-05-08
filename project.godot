@@ -22,8 +22,13 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
+directories/dch_directory={
+"chruch_npc": "res://Dialogs/chruch_npc.dch",
+"player": "res://Dialogs/player.dch"
+}
+directories/dtl_directory={
+"timeline_1": "res://Dialogs/timeline_1.dtl"
+}
 layout/style_directory={}
 
 [editor_plugins]
