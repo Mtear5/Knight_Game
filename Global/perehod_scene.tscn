@@ -55,6 +55,7 @@ _data = {
 }
 
 [node name="perehod_scene" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_5sgla")
 
 [node name="ColorRect" type="ColorRect" parent="."]

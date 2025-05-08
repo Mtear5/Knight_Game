@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=4 uid="uid://dt7sxnbnvcmuq"]
+[gd_scene load_steps=29 format=4 uid="uid://dt7sxnbnvcmuq"]
 
 [ext_resource type="Texture2D" uid="uid://bwndrrhs0vdlf" path="res://Assets/Forest/main_background.png" id="1_1n41l"]
 [ext_resource type="Script" path="res://Levels/level_2_1.gd" id="1_5c31i"]
+[ext_resource type="Script" path="res://Levels/pause_manager.gd" id="2_7nl3x"]
 [ext_resource type="Texture2D" uid="uid://4w6w6j2k5x01" path="res://Assets/Forest/bgrd_tree5.png" id="2_oiljf"]
 [ext_resource type="Texture2D" uid="uid://cfnw5l5ih6rih" path="res://Assets/Forest/bgrd_tree4.png" id="3_bbi7p"]
 [ext_resource type="Texture2D" uid="uid://bwx202t1cj0jr" path="res://Assets/Forest/castle_env.png" id="4_dmr5i"]
@@ -10,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bdcc240cp418t" path="res://Player/player.tscn" id="7_v4wuc"]
 [ext_resource type="FontFile" uid="uid://dgkdb3bgk26r" path="res://Assets/Monocraft.otf" id="9_uardg"]
 [ext_resource type="AudioStream" uid="uid://bi3feh3kruvkb" path="res://Assets/Music_lavel_2/Pixelated Battles (1).mp3" id="10_u1jao"]
+[ext_resource type="PackedScene" uid="uid://cpfr53sg4luo7" path="res://Pause_menu/pause_menu.tscn" id="12_fmv6c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5cmbq"]
 texture = ExtResource("4_dmr5i")
@@ -5389,6 +5391,10 @@ size = Vector2(82, 36)
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_5c31i")
 
+[node name="Pause_manager" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("2_7nl3x")
+
 [node name="MainBackground" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
 scale = Vector2(1.125, 1.125)
@@ -5468,7 +5474,15 @@ stream = ExtResource("10_u1jao")
 volume_db = -40.0
 autoplay = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("12_fmv6c")]
+process_mode = 2
+
 [connection signal="body_entered" from="Door_in_level_2_2" to="." method="_on_door_in_level_2_2_body_entered"]
 [connection signal="body_exited" from="Door_in_level_2_2" to="." method="_on_door_in_level_2_2_body_exited"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/Panel/VBoxContainer/Button" to="Pause_manager" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/Panel/VBoxContainer/Button2" to="Pause_manager" method="_on_button_2_pressed"]
 
 [editable path="CharacterBody2D"]
+[editable path="CanvasLayer/PauseMenu"]

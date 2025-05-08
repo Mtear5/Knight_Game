@@ -1,8 +1,9 @@
-[gd_scene load_steps=42 format=4 uid="uid://wy7b3f3qlywx"]
+[gd_scene load_steps=44 format=4 uid="uid://wy7b3f3qlywx"]
 
 [ext_resource type="Script" path="res://Levels/level_2.gd" id="1_awjey"]
 [ext_resource type="Texture2D" uid="uid://bwndrrhs0vdlf" path="res://Assets/Forest/main_background.png" id="1_lyn2x"]
 [ext_resource type="Texture2D" uid="uid://cfnw5l5ih6rih" path="res://Assets/Forest/bgrd_tree4.png" id="2_mkeuh"]
+[ext_resource type="Script" path="res://Levels/pause_manager.gd" id="2_rkak2"]
 [ext_resource type="Texture2D" uid="uid://cn1f4gyi4m5bn" path="res://Assets/Forest/bgrd_tree3.png" id="3_w5am8"]
 [ext_resource type="Texture2D" uid="uid://dfd5ilvlstfk4" path="res://Assets/Forest/bgrd_tree2.png" id="4_kfwya"]
 [ext_resource type="Texture2D" uid="uid://nc2rq8v5xn1f" path="res://Assets/Forest/bgrd_tree1.png" id="5_0p7yq"]
@@ -15,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bdcc240cp418t" path="res://Player/player.tscn" id="12_0uo6m"]
 [ext_resource type="FontFile" uid="uid://dgkdb3bgk26r" path="res://Assets/Monocraft.otf" id="14_c0ho1"]
 [ext_resource type="AudioStream" uid="uid://dj7wch8xy7eg7" path="res://Assets/Music_lavel_2/dungeon_theme_1.wav" id="15_wfyhb"]
+[ext_resource type="PackedScene" uid="uid://cpfr53sg4luo7" path="res://Pause_menu/pause_menu.tscn" id="17_lvtsm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qo1yb"]
 texture = ExtResource("6_yw8ha")
@@ -11488,6 +11490,10 @@ _data = {
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_awjey")
 
+[node name="Pause_manager" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("2_rkak2")
+
 [node name="MainBackground" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
 scale = Vector2(1.125, 1.125)
@@ -11607,7 +11613,15 @@ stream = ExtResource("15_wfyhb")
 volume_db = -40.0
 autoplay = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("17_lvtsm")]
+process_mode = 2
+
 [connection signal="body_entered" from="Door_in_level_2_1" to="." method="_on_door_in_level_2_1_body_entered"]
 [connection signal="body_exited" from="Door_in_level_2_1" to="." method="_on_door_in_level_2_1_body_exited"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/Panel/VBoxContainer/Button" to="Pause_manager" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/Panel/VBoxContainer/Button2" to="Pause_manager" method="_on_button_2_pressed"]
 
 [editable path="CharacterBody2D"]
+[editable path="CanvasLayer/PauseMenu"]
