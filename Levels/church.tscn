@@ -1399,13 +1399,12 @@ text = "Храм"
 metadata/_edit_use_anchors_ = true
 
 [node name="F" type="Node2D" parent="."]
-visible = false
 
 [node name="Label" type="Label" parent="F"]
-offset_left = 830.0
-offset_top = 528.787
-offset_right = 870.0
-offset_bottom = 551.787
+offset_left = 823.0
+offset_top = 527.0
+offset_right = 863.0
+offset_bottom = 550.0
 theme_override_fonts/font = ExtResource("4_nw5bp")
 theme_override_font_sizes/font_size = 13
 text = "F"

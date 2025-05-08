@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Main_menu/main_menu.gd" id="1_w3440"]
 [ext_resource type="AudioStream" uid="uid://y4rfybvotfl8" path="res://Assets/Music_menu/OGG/Retro11.ogg" id="2_btgtd"]
 [ext_resource type="PackedScene" uid="uid://dnuvd053m3y2b" path="res://Main_menu/menu.tscn" id="2_eotl2"]
-[ext_resource type="AudioStream" uid="uid://dsaya3twjs58w" path="res://Assets/Music/Ogg/Pixel 11.ogg" id="3_ne4ta"]
+[ext_resource type="AudioStream" uid="uid://boj1y47nynk7n" path="res://Assets/Music_lavel_1/2 Main Theme - Winter Tale.ogg" id="3_q2e60"]
 [ext_resource type="AudioStream" uid="uid://dvsuje3sldlnn" path="res://Assets/Music_menu/OGG/Retro12.ogg" id="5_j1fis"]
 
 [node name="Main_menu" type="Node2D"]
@@ -32,7 +32,7 @@ layer = -1
 
 [node name="Pixel11" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(549, 296)
-stream = ExtResource("3_ne4ta")
+stream = ExtResource("3_q2e60")
 volume_db = -40.0
 autoplay = true
 

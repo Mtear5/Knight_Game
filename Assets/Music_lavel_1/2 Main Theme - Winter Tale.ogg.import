@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://boj1y47nynk7n"
+path="res://.godot/imported/2 Main Theme - Winter Tale.ogg-18b62e7ea7b8760f19ae68a2868259c4.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Music_lavel_1/2 Main Theme - Winter Tale.ogg"
+dest_files=["res://.godot/imported/2 Main Theme - Winter Tale.ogg-18b62e7ea7b8760f19ae68a2868259c4.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

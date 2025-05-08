@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dgpvs06d5gjj0"
+path="res://.godot/imported/Pixelated Battles Nikromant.mp3-313ddf41d0518ccd2c8463dd169b070c.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music_lavel_2/Pixelated Battles Nikromant.mp3"
+dest_files=["res://.godot/imported/Pixelated Battles Nikromant.mp3-313ddf41d0518ccd2c8463dd169b070c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

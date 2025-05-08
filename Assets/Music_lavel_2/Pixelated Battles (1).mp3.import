@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bi3feh3kruvkb"
+path="res://.godot/imported/Pixelated Battles (1).mp3-e468626408eba670360899c988c3314c.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music_lavel_2/Pixelated Battles (1).mp3"
+dest_files=["res://.godot/imported/Pixelated Battles (1).mp3-e468626408eba670360899c988c3314c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
