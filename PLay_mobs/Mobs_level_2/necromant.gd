@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @onready var anim = $AnimatedSprite2D
+@onready var player = $"../CharacterBody2D"
+@onready var music = $"../AudioStreamPlayer2D"
 
 var position_player
 var diraction
@@ -88,15 +90,19 @@ func state_hit():
 	state = IDLE
 
 func state_death():
+	player.dialog_play = true
 	$AttackDirection/Area2D/CollisionShape2D.disabled = true
+	$AttackDirection/DamageBox/HitBox/CollisionShape2D.disabled = true
+	$AttackDirection.position.y = 100
 	anim.play("Death")
 	await anim.animation_finished
-	queue_free()
+	$AnimatedSprite2D.visible = false
+	Dialogic.start("timeline_player_win_necro")
+	Dialogic.timeline_ended.connect(on_dialogic_end_1)
 	
 func _on_player_position(player_pos):
 	position_player = player_pos
-
-
+	
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	Signals.emit_signal("enemy_attack", damage)
 
@@ -107,4 +113,27 @@ func _on_damage(player_damage):
 	else:
 		state = IDLE
 		state = HIT
+	
+
+
+func _on_dialog_detect_body_entered(body: Node2D) -> void:
+	$dialogDetect.rotation_degrees = -90
+	player.dialog_play = true
+	Dialogic.start("timeline_necroman")
+	Dialogic.timeline_ended.connect(on_dialogic_end)
+
+
+func on_dialogic_end():
+	player.dialog_play = false
+
+
+func on_dialogic_end_1():
+	var tween_music = get_tree().create_tween()
+	tween_music.tween_property(music, "volume_db", -50, 2)
+	PerehodScene.transition()
+	
+	await PerehodScene.on_transition_finished
+	
+	music.stop()
+	get_tree().change_scene_to_file("res://Levels/Level_1.tscn")
 	

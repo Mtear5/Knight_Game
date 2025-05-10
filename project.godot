@@ -25,10 +25,13 @@ Signals="*res://Global/signals.gd"
 
 directories/dch_directory={
 "chruch_npc": "res://Dialogs/chruch_npc.dch",
+"necroman": "res://Dialogs/necroman.dch",
 "player": "res://Dialogs/player.dch"
 }
 directories/dtl_directory={
-"timeline_1": "res://Dialogs/timeline_1.dtl"
+"timeline_1": "res://Dialogs/timeline_1.dtl",
+"timeline_necroman": "res://Dialogs/timeline_necroman.dtl",
+"timeline_player_win_necro": "res://Dialogs/timeline_player_win_necro.dtl"
 }
 layout/style_directory={}
 

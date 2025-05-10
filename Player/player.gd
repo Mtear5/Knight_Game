@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_right"):
 			$AttackDirection/DamageBox/HitBox.rotation_degrees = 0
 		
-		if Input.is_action_just_pressed("ui_accept"):
+		if Input.is_action_just_pressed("ui_accept") and not(dialog_play) and not(enemy_damage_on):
 			attack_on = true
 			anim.play("Attack")
 			$AttackDirection/DamageBox/HitBox/CollisionShape2D.disabled = false
