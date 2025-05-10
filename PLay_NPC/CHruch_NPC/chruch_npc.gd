@@ -9,8 +9,12 @@ func _ready() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	player.dialog_play = true
-	Dialogic.start("timeline_1")
-	Dialogic.timeline_ended.connect(on_dialogic_end)
+	if SaveManager.last_completed_level == 1:
+		Dialogic.start("timeline_1")
+		Dialogic.timeline_ended.connect(on_dialogic_end)
+	elif SaveManager.last_completed_level == 2:
+		Dialogic.start("timeline_2")
+		Dialogic.timeline_ended.connect(on_dialogic_end)
 
 
 func on_dialogic_end():
@@ -21,4 +25,7 @@ func on_dialogic_end():
 	await PerehodScene.on_transition_finished
 	
 	music_level.stop()
-	get_tree().change_scene_to_file("res://Levels/Level_2.tscn")
+	if SaveManager.last_completed_level == 1:
+		get_tree().change_scene_to_file("res://Levels/Level_2.tscn")
+	elif SaveManager.last_completed_level == 2:
+		get_tree().change_scene_to_file("res://Levels/Level_3.tscn")

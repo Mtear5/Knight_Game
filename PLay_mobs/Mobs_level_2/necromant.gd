@@ -128,6 +128,7 @@ func on_dialogic_end():
 
 
 func on_dialogic_end_1():
+	SaveManager.save_progress(2)
 	var tween_music = get_tree().create_tween()
 	tween_music.tween_property(music, "volume_db", -50, 2)
 	PerehodScene.transition()

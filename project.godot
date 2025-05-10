@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 PerehodScene="*res://Global/perehod_scene.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 Signals="*res://Global/signals.gd"
+SaveManager="*res://Global/SaveManager.gd"
 
 [dialogic]
 
@@ -30,6 +31,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "timeline_1": "res://Dialogs/timeline_1.dtl",
+"timeline_2": "res://Dialogs/timeline_2.dtl",
 "timeline_necroman": "res://Dialogs/timeline_necroman.dtl",
 "timeline_player_win_necro": "res://Dialogs/timeline_player_win_necro.dtl"
 }
