@@ -4817,4 +4817,5 @@ visible = false
 [connection signal="pressed" from="CanvasLayer/PauseMenu/Panel/VBoxContainer/Button2" to="Pause_manager" method="_on_button_2_pressed"]
 
 [editable path="CharacterBody2D"]
+[editable path="CharacterBody2D/AttackDirection/DamageBox"]
 [editable path="CanvasLayer/PauseMenu"]

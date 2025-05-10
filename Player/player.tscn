@@ -1,13 +1,16 @@
-[gd_scene load_steps=44 format=3 uid="uid://bdcc240cp418t"]
+[gd_scene load_steps=54 format=3 uid="uid://bdcc240cp418t"]
 
 [ext_resource type="Texture2D" uid="uid://t1pckvy2p3xv" path="res://Assets/Main_hero/Idle.png" id="1_lt0xx"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_uyy42"]
 [ext_resource type="Texture2D" uid="uid://hres5a2duagq" path="res://Assets/Main_hero/Attacks.png" id="2_eeyxp"]
+[ext_resource type="Texture2D" uid="uid://k6ww5y3k87gt" path="res://Assets/Main_hero/Death.png" id="3_04psc"]
 [ext_resource type="Texture2D" uid="uid://b7upbp7hbolcf" path="res://Assets/Main_hero/Jump.png" id="4_p7jkk"]
+[ext_resource type="Texture2D" uid="uid://d1efuueesxxih" path="res://Assets/Main_hero/Hurt.png" id="4_wuqem"]
 [ext_resource type="Texture2D" uid="uid://c6527u76a2esd" path="res://Assets/Main_hero/Run.png" id="5_7f8mk"]
 [ext_resource type="AudioStream" uid="uid://dd6t5h4i7p3e6" path="res://Assets/Main_hero/FEETHmn-CREAKING WOOD_Footsteps With Tennis Shoes On Creaking Wood 01_AUDIOELK_NONE.wav" id="6_y0ukx"]
 [ext_resource type="AudioStream" uid="uid://biof0rukuk2hb" path="res://Assets/Main_hero/Pre Jump 3.wav" id="7_pjtjh"]
 [ext_resource type="AudioStream" uid="uid://boce876df56un" path="res://Assets/Main_hero/Post Jump 3.wav" id="8_of7nx"]
+[ext_resource type="PackedScene" uid="uid://dhjci5ujcjes0" path="res://Global/damage_box_player.tscn" id="9_hhv46"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1sjci"]
 atlas = ExtResource("2_eeyxp")
@@ -41,6 +44,22 @@ region = Rect2(768, 0, 128, 64)
 atlas = ExtResource("2_eeyxp")
 region = Rect2(896, 0, 128, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ba3fs"]
+atlas = ExtResource("3_04psc")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ched"]
+atlas = ExtResource("3_04psc")
+region = Rect2(128, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5giv5"]
+atlas = ExtResource("3_04psc")
+region = Rect2(0, 64, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku68v"]
+atlas = ExtResource("3_04psc")
+region = Rect2(128, 64, 128, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ahuj"]
 atlas = ExtResource("4_p7jkk")
 region = Rect2(0, 128, 128, 64)
@@ -52,6 +71,18 @@ region = Rect2(128, 128, 128, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_q43l5"]
 atlas = ExtResource("4_p7jkk")
 region = Rect2(0, 192, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q15eo"]
+atlas = ExtResource("4_wuqem")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oa45h"]
+atlas = ExtResource("4_wuqem")
+region = Rect2(128, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khh6a"]
+atlas = ExtResource("4_wuqem")
+region = Rect2(0, 64, 128, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iw24v"]
 atlas = ExtResource("1_lt0xx")
@@ -168,9 +199,26 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xw7lo")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack",
 "speed": 13.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ba3fs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ched")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5giv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ku68v")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -185,6 +233,20 @@ animations = [{
 "loop": true,
 "name": &"Fall",
 "speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q15eo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oa45h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khh6a")
+}],
+"loop": false,
+"name": &"Hit",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -279,9 +341,7 @@ script = ExtResource("1_uyy42")
 position = Vector2(-7, -5)
 scale = Vector2(0.625, 0.625)
 sprite_frames = SubResource("SpriteFrames_fl7ex")
-animation = &"Run"
-frame = 2
-frame_progress = 0.820165
+animation = &"Attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-6, 0)
@@ -305,3 +365,24 @@ volume_db = -10.0
 [node name="post_jump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_of7nx")
 volume_db = -10.0
+
+[node name="AttackDirection" type="Node2D" parent="."]
+
+[node name="DamageBox" parent="AttackDirection" instance=ExtResource("9_hhv46")]
+position = Vector2(-6, 0)
+
+[node name="HurtBox" parent="AttackDirection/DamageBox" index="0"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="HitBox" parent="AttackDirection/DamageBox" index="1"]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" parent="AttackDirection/DamageBox/HitBox" index="0"]
+position = Vector2(12, 0)
+disabled = true
+
+[connection signal="area_entered" from="AttackDirection/DamageBox/HitBox" to="." method="_on_hit_box_area_entered"]
+
+[editable path="AttackDirection/DamageBox"]

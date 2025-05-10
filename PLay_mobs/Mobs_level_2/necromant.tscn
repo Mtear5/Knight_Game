@@ -1,4 +1,4 @@
-[gd_scene load_steps=144 format=3 uid="uid://c4ensshme3qq6"]
+[gd_scene load_steps=145 format=3 uid="uid://c4ensshme3qq6"]
 
 [ext_resource type="Script" path="res://PLay_mobs/Mobs_level_2/necromant.gd" id="1_efn33"]
 [ext_resource type="Texture2D" uid="uid://h8tjpdcaqcml" path="res://Assets/Mobs/Necromancer/Attack/spr_NecromancerAttackWithEffect_strip47.png" id="1_s8mrv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://boqyvh4er024y" path="res://Assets/Mobs/Necromancer/GetHit/spr_NecromancerGetHit_strip9.png" id="3_ybktd"]
 [ext_resource type="Texture2D" uid="uid://b26g4rt7m1tum" path="res://Assets/Mobs/Necromancer/Idle/spr_NecromancerIdle_strip50.png" id="4_lnls1"]
 [ext_resource type="Texture2D" uid="uid://cekm1dsqt3gvy" path="res://Assets/Mobs/Necromancer/Walk/spr_NecromancerWalk_strip10.png" id="5_6cypv"]
+[ext_resource type="PackedScene" uid="uid://bkgiqtspk0wcc" path="res://Global/damage_box_necromant.tscn" id="7_4wbgb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6hb1r"]
 height = 36.0
@@ -989,9 +990,9 @@ shape = SubResource("CapsuleShape2D_6hb1r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_so1rx")
-animation = &"Attack"
+animation = &"Hit"
 autoplay = "Idle"
-frame = 46
+frame = 8
 frame_progress = 1.0
 flip_h = true
 
@@ -1005,4 +1006,24 @@ collision_mask = 2
 position = Vector2(-32.5, -11)
 shape = SubResource("RectangleShape2D_l68ye")
 
+[node name="DamageBox" parent="AttackDirection" instance=ExtResource("7_4wbgb")]
+
+[node name="HurtBox" parent="AttackDirection/DamageBox" index="0"]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="AttackDirection/DamageBox/HurtBox" index="0"]
+position = Vector2(2, -2)
+
+[node name="HitBox" parent="AttackDirection/DamageBox" index="1"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" parent="AttackDirection/DamageBox/HitBox" index="0"]
+position = Vector2(-32, -8)
+disabled = true
+
 [connection signal="body_entered" from="AttackDirection/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="AttackDirection/DamageBox/HitBox" to="." method="_on_hit_box_area_entered"]
+
+[editable path="AttackDirection/DamageBox"]
