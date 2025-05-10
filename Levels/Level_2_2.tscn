@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cqjqiikxa1lb0"]
+[gd_scene load_steps=19 format=4 uid="uid://cqjqiikxa1lb0"]
 
 [ext_resource type="Script" path="res://Levels/level_2_2.gd" id="1_4qgwh"]
 [ext_resource type="Texture2D" uid="uid://bwx202t1cj0jr" path="res://Assets/Forest/castle_env.png" id="1_atvlm"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bdcc240cp418t" path="res://Player/player.tscn" id="3_fhja5"]
 [ext_resource type="AudioStream" uid="uid://dgpvs06d5gjj0" path="res://Assets/Music_lavel_2/Pixelated Battles Nikromant.mp3" id="5_n5ewp"]
 [ext_resource type="PackedScene" uid="uid://cpfr53sg4luo7" path="res://Pause_menu/pause_menu.tscn" id="7_s862g"]
+[ext_resource type="PackedScene" uid="uid://c4ensshme3qq6" path="res://PLay_mobs/Mobs_level_2/necromant.tscn" id="8_3lqdg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r1s4n"]
 texture = ExtResource("1_atvlm")
@@ -4789,6 +4790,9 @@ tile_set = SubResource("TileSet_orvpa")
 tile_map_data = PackedByteArray("AAAjABsAAAAgABAAAAAjABwAAAAgABEAAAAjAB0AAAAgABIAAAAjAB4AAAAgABMAAAAkABsAAAAhABAAAAAkABwAAAAhABEAAAAkAB0AAAAhABIAAAAkAB4AAAAhABMAAAArAB4AAAAhABMAAAAJABkAAAAmAAAAAAAJABoAAAAmAAEAAAAKABkAAAAnAAAAAAAKABoAAAAnAAEAAAAAABkAAAAmAAAAAAAAABoAAAAmAAEAAAABABkAAAAnAAAAAAABABoAAAAnAAEAAAAsABkAAAAmAAAAAAAsABoAAAAmAAEAAAAtABkAAAAnAAAAAAAtABoAAAAnAAEAAAAqABsAAAAgABAAAAAqABwAAAAgABEAAAAqAB0AAAAgABIAAAAqAB4AAAAgABMAAAArABsAAAAhABAAAAArABwAAAAhABEAAAArAB0AAAAhABIAAAAhABkAAAAmAAAAAAAhABoAAAAmAAEAAAAiABkAAAAnAAAAAAAiABoAAAAnAAEAAAAOABsAAAAjAAUAAAAOABwAAAAjAAYAAAAOAB0AAAAjAAcAAAAOAB4AAAAjAAgAAAAPABsAAAAkAAUAAAAPABwAAAAkAAYAAAAPAB0AAAAkAAcAAAAPAB4AAAAkAAgAAAASABsAAAAjAAUAAAASABwAAAAjAAYAAAASAB0AAAAjAAcAAAASAB4AAAAjAAgAAAATABsAAAAkAAUAAAATABwAAAAkAAYAAAATAB0AAAAkAAcAAAATAB4AAAAkAAgAAABBABsAAAAjAAUAAABBABwAAAAjAAYAAABBAB0AAAAjAAcAAABBAB4AAAAjAAgAAABCABsAAAAkAAUAAABCABwAAAAkAAYAAABCAB0AAAAkAAcAAABCAB4AAAAkAAgAAABFABsAAAAjAAUAAABFABwAAAAjAAYAAABFAB0AAAAjAAcAAABFAB4AAAAjAAgAAABGABsAAAAkAAUAAABGABwAAAAkAAYAAABGAB0AAAAkAAcAAABGAB4AAAAkAAgAAAA7ABwAAAAiAAEAAAA7AB0AAAAiAAIAAAA7AB4AAAAiAAMAAAA8ABwAAAAjAAEAAAA8AB0AAAAjAAIAAAA8AB4AAAAjAAMAAAA3ABwAAAAiAAEAAAA3AB0AAAAiAAIAAAA3AB4AAAAiAAMAAAA4ABwAAAAjAAEAAAA4AB0AAAAjAAIAAAA4AB4AAAAjAAMAAAAZABwAAAAiAAEAAAAZAB0AAAAiAAIAAAAZAB4AAAAiAAMAAAAaABwAAAAjAAEAAAAaAB0AAAAjAAIAAAAaAB4AAAAjAAMAAAAdABwAAAAiAAEAAAAdAB0AAAAiAAIAAAAdAB4AAAAiAAMAAAAeABwAAAAjAAEAAAAeAB0AAAAjAAIAAAAeAB4AAAAjAAMAAAA=")
 tile_set = SubResource("TileSet_w6qbj")
 
+[node name="Necromant" parent="." instance=ExtResource("8_3lqdg")]
+position = Vector2(636, 479)
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_fhja5")]
 position = Vector2(92, 481)
 
@@ -4807,6 +4811,7 @@ autoplay = true
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("7_s862g")]
 process_mode = 2
+visible = false
 
 [connection signal="pressed" from="CanvasLayer/PauseMenu/Panel/VBoxContainer/Button" to="Pause_manager" method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/Panel/VBoxContainer/Button2" to="Pause_manager" method="_on_button_2_pressed"]

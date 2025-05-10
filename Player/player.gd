@@ -10,6 +10,7 @@ const JUMP_VELOCITY = -350.0
 
 var jump_value : bool = false
 var dialog_play : bool = false
+var player_pos
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -50,3 +51,6 @@ func _physics_process(delta: float) -> void:
 		anim.play("Fall")
 
 	move_and_slide()
+	
+	player_pos = position
+	Signals.emit_signal("player_position", player_pos)

@@ -1425,6 +1425,8 @@ libraries = {
 speed_scale = 0.7
 
 [node name="Door_in_derevna" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door_in_derevna"]
 position = Vector2(839, 570)
@@ -1442,6 +1444,7 @@ position = Vector2(644, 625)
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("7_4tncx")]
 process_mode = 2
+visible = false
 
 [connection signal="body_entered" from="Door_in_derevna" to="." method="_on_door_in_derevna_body_entered"]
 [connection signal="body_exited" from="Door_in_derevna" to="." method="_on_door_in_derevna_body_exited"]

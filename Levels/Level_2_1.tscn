@@ -5464,6 +5464,8 @@ libraries = {
 speed_scale = 0.7
 
 [node name="Door_in_level_2_2" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door_in_level_2_2"]
 position = Vector2(137, 370)
@@ -5478,6 +5480,7 @@ autoplay = true
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("12_fmv6c")]
 process_mode = 2
+visible = false
 
 [connection signal="body_entered" from="Door_in_level_2_2" to="." method="_on_door_in_level_2_2_body_entered"]
 [connection signal="body_exited" from="Door_in_level_2_2" to="." method="_on_door_in_level_2_2_body_exited"]

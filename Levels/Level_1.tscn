@@ -1997,6 +1997,8 @@ libraries = {
 speed_scale = 0.7
 
 [node name="Door_in_church" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door_in_church"]
 position = Vector2(599, 459.5)
@@ -2006,6 +2008,7 @@ shape = SubResource("RectangleShape2D_b1eka")
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("8_24bl6")]
 process_mode = 2
+visible = false
 
 [connection signal="body_entered" from="Door_in_church" to="." method="_on_door_in_church_body_entered"]
 [connection signal="body_exited" from="Door_in_church" to="." method="_on_door_in_church_body_exited"]
