@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var label = $CharacterBody2D/Label
 @onready var music = $AudioStreamPlayer2D
 @onready var anim_f = $F/f_animation
 @onready var object_f = $F
@@ -11,7 +12,9 @@ var skelet_preload = preload("res://PLay_mobs/Mobs_level_2/skelet.tscn")
 func _ready() -> void:
 	anim_f.play("f_animate")
 	
+	var tween_label_start = get_tree().create_tween()
 	var tween_music_start = get_tree().create_tween()
+	tween_label_start.tween_property(label, "modulate:a", 1.0, 2)
 	tween_music_start.tween_property(music, "volume_db", -20.0, 4)
 	
 	var skelet_1 = skelet_preload.instantiate()
@@ -26,7 +29,13 @@ func _ready() -> void:
 	$Mobs.add_child(skelet_2)
 	$Mobs.add_child(skelet_3)
 	
-	await tween_music_start.finished
+	await tween_label_start.finished
+	
+	var tween_label_end = get_tree().create_tween()
+	tween_label_end.tween_property(label, "modulate:a", 0.0, 2)
+	await tween_label_end.finished
+	
+	label.visible = false
 
 
 func _process(delta: float) -> void:

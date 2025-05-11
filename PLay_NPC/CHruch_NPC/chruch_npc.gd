@@ -18,6 +18,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	elif SaveManager.last_completed_level == 3:
 		Dialogic.start("timeline_3")
 		Dialogic.timeline_ended.connect(on_dialogic_end)
+	elif SaveManager.last_completed_level == 4:
+		Dialogic.start("timeline_4")
+		Dialogic.timeline_ended.connect(on_dialogic_end)
 
 
 func on_dialogic_end():
@@ -34,3 +37,6 @@ func on_dialogic_end():
 		get_tree().change_scene_to_file("res://Levels/Level_3.tscn")
 	elif SaveManager.last_completed_level == 3:
 		get_tree().change_scene_to_file("res://Levels/Level_4_1.tscn")
+	elif SaveManager.last_completed_level == 4:
+		SaveManager.save_progress(1)
+		get_tree().change_scene_to_file("res://Main_menu/main_menu.tscn")

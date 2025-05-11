@@ -26,6 +26,7 @@ SaveManager="*res://Global/SaveManager.gd"
 
 directories/dch_directory={
 "chruch_npc": "res://Dialogs/chruch_npc.dch",
+"demon": "res://Dialogs/demon.dch",
 "necroman": "res://Dialogs/necroman.dch",
 "player": "res://Dialogs/player.dch"
 }
@@ -33,7 +34,10 @@ directories/dtl_directory={
 "timeline_1": "res://Dialogs/timeline_1.dtl",
 "timeline_2": "res://Dialogs/timeline_2.dtl",
 "timeline_3": "res://Dialogs/timeline_3.dtl",
+"timeline_4": "res://Dialogs/timeline_4.dtl",
+"timeline_demon_for_player": "res://Dialogs/timeline_demon_for_player.dtl",
 "timeline_level_3_win": "res://Dialogs/timeline_level_3_win.dtl",
+"timeline_level_4_win": "res://Dialogs/timeline_level_4_win.dtl",
 "timeline_necroman": "res://Dialogs/timeline_necroman.dtl",
 "timeline_player_win_necro": "res://Dialogs/timeline_player_win_necro.dtl"
 }

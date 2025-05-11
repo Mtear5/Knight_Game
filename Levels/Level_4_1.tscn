@@ -514,10 +514,24 @@ limit_left = 0
 limit_right = 1150
 limit_bottom = 650
 
+[node name="Label" type="Label" parent="CharacterBody2D"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = -67.0
+theme_override_fonts/font = ExtResource("5_crqg7")
+theme_override_font_sizes/font_size = 30
+text = "Подземелье Трех Лучей"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ktngh")
 volume_db = -60.0
 autoplay = true
+parameters/looping = false
 
 [node name="F" type="Node2D" parent="."]
 visible = false

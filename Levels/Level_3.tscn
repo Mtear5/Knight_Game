@@ -405,8 +405,12 @@ parameters/looping = false
 [node name="DamageBox" parent="DeathZone" instance=ExtResource("9_1yi34")]
 position = Vector2(327, 617)
 
+[node name="HitBox" parent="DeathZone/DamageBox" index="0"]
+collision_layer = 64
+collision_mask = 48
+
 [node name="CollisionShape2D" parent="DeathZone/DamageBox/HitBox" index="0"]
-position = Vector2(967.5, 6.5)
+position = Vector2(925, -2)
 
 [node name="Pause_manager" type="Node" parent="."]
 process_mode = 3

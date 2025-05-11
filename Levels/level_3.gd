@@ -62,4 +62,7 @@ func on_dialogic_end():
 	get_tree().change_scene_to_file("res://Levels/Level_1.tscn")
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
-	Signals.emit_signal("enemy_attack", 110)
+	if area.get_parent().get_parent().get_parent().name == "CharacterBody2D":
+		Signals.emit_signal("enemy_attack", 110)
+	else:
+		Signals.emit_signal("player_attack", 110)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://ddcostwslj42a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k101i"]
-size = Vector2(1346, 39)
+size = Vector2(4037, 42.5)
 
 [node name="DamageBox" type="Node2D"]
 
@@ -10,4 +10,5 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(297.5, 1.75)
 shape = SubResource("RectangleShape2D_k101i")
