@@ -1,10 +1,16 @@
-[gd_scene load_steps=10 format=4 uid="uid://di6nrbk1ik11k"]
+[gd_scene load_steps=16 format=4 uid="uid://di6nrbk1ik11k"]
 
+[ext_resource type="Script" path="res://Levels/level_3.gd" id="1_2bktr"]
 [ext_resource type="Texture2D" uid="uid://bgyrsxmnnhbby" path="res://Assets/Fields/background_0.png" id="1_h5hro"]
 [ext_resource type="Texture2D" uid="uid://m57v1qghttph" path="res://Assets/Fields/background_1.png" id="2_qyua2"]
 [ext_resource type="Texture2D" uid="uid://dytjxrhurejic" path="res://Assets/Fields/background_2.png" id="3_v7x0b"]
 [ext_resource type="Texture2D" uid="uid://cuhe2wnhuecy0" path="res://Assets/Fields/tileset.png" id="4_dpawi"]
 [ext_resource type="PackedScene" uid="uid://bdcc240cp418t" path="res://Player/player.tscn" id="5_rhyvq"]
+[ext_resource type="FontFile" uid="uid://dgkdb3bgk26r" path="res://Assets/Monocraft.otf" id="7_0a66p"]
+[ext_resource type="AudioStream" uid="uid://dq1p03w6pi07y" path="res://Assets/Music_lavel_3/Kniga_-_Drevnij_les_(Zvyki.com).mp3" id="8_cfyib"]
+[ext_resource type="PackedScene" uid="uid://ddcostwslj42a" path="res://Global/damage_box_level.tscn" id="9_1yi34"]
+[ext_resource type="Script" path="res://Levels/pause_manager.gd" id="10_hwua1"]
+[ext_resource type="PackedScene" uid="uid://cpfr53sg4luo7" path="res://Pause_menu/pause_menu.tscn" id="11_riphd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jtbvv"]
 texture = ExtResource("4_dpawi")
@@ -337,6 +343,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_x5lkd")
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_2bktr")
 
 [node name="Background0" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
@@ -367,7 +374,7 @@ tile_map_data = PackedByteArray("AAAdABEAAAAAAAIAAAAdABIAAAAAAAMAAAAhABEAAAACAAI
 tile_set = SubResource("TileSet_f08rw")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("5_rhyvq")]
-position = Vector2(28, 431)
+position = Vector2(163, 433)
 
 [node name="Camera2D" parent="CharacterBody2D" index="2"]
 limit_left = 0
@@ -375,5 +382,47 @@ limit_top = 0
 limit_right = 2215
 limit_bottom = 625
 
+[node name="Label" type="Label" parent="CharacterBody2D"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = -67.0
+theme_override_fonts/font = ExtResource("7_0a66p")
+theme_override_font_sizes/font_size = 30
+text = "Рыжий лес"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_cfyib")
+volume_db = -60.0
+autoplay = true
+parameters/looping = false
+
+[node name="DeathZone" type="Node2D" parent="."]
+
+[node name="DamageBox" parent="DeathZone" instance=ExtResource("9_1yi34")]
+position = Vector2(327, 617)
+
+[node name="CollisionShape2D" parent="DeathZone/DamageBox/HitBox" index="0"]
+position = Vector2(663, 6.5)
+
+[node name="Pause_manager" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("10_hwua1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("11_riphd")]
+process_mode = 2
+visible = false
+
+[connection signal="area_entered" from="DeathZone/DamageBox/HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/Panel/VBoxContainer/Button" to="Pause_manager" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/Panel/VBoxContainer/Button2" to="Pause_manager" method="_on_button_2_pressed"]
+
 [editable path="CharacterBody2D"]
 [editable path="CharacterBody2D/AttackDirection/DamageBox"]
+[editable path="DeathZone/DamageBox"]
+[editable path="CanvasLayer/PauseMenu"]

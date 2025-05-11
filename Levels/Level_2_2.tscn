@@ -4806,6 +4806,7 @@ limit_bottom = 575
 stream = ExtResource("5_n5ewp")
 volume_db = -40.0
 autoplay = true
+parameters/looping = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

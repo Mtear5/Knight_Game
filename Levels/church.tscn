@@ -1436,6 +1436,7 @@ shape = SubResource("RectangleShape2D_enayq")
 stream = ExtResource("5_y1pfd")
 volume_db = -40.0
 autoplay = true
+parameters/looping = false
 
 [node name="Chruch_NPC" parent="." instance=ExtResource("6_3x8pf")]
 position = Vector2(644, 625)
@@ -1452,4 +1453,5 @@ visible = false
 [connection signal="pressed" from="CanvasLayer/PauseMenu/Panel/VBoxContainer/Button2" to="Pause_manager" method="_on_button_2_pressed"]
 
 [editable path="CharacterBody2D"]
+[editable path="CharacterBody2D/AttackDirection/DamageBox"]
 [editable path="CanvasLayer/PauseMenu"]

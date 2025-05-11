@@ -5475,6 +5475,7 @@ shape = SubResource("RectangleShape2D_4v8fq")
 stream = ExtResource("10_u1jao")
 volume_db = -40.0
 autoplay = true
+parameters/looping = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
