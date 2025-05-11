@@ -406,7 +406,7 @@ parameters/looping = false
 position = Vector2(327, 617)
 
 [node name="CollisionShape2D" parent="DeathZone/DamageBox/HitBox" index="0"]
-position = Vector2(663, 6.5)
+position = Vector2(967.5, 6.5)
 
 [node name="Pause_manager" type="Node" parent="."]
 process_mode = 3
@@ -417,6 +417,8 @@ script = ExtResource("10_hwua1")
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("11_riphd")]
 process_mode = 2
 visible = false
+
+[node name="Mobs" type="Node2D" parent="."]
 
 [connection signal="area_entered" from="DeathZone/DamageBox/HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/Panel/VBoxContainer/Button" to="Pause_manager" method="_on_button_pressed"]

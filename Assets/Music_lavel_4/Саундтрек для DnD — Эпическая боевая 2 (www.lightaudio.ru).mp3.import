@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://q2qdyqs7baom"
+path="res://.godot/imported/Саундтрек для DnD — Эпическая боевая 2 (www.lightaudio.ru).mp3-264fe92354f6c9107fb6eff40e8c4278.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music_lavel_4/Саундтрек для DnD — Эпическая боевая 2 (www.lightaudio.ru).mp3"
+dest_files=["res://.godot/imported/Саундтрек для DnD — Эпическая боевая 2 (www.lightaudio.ru).mp3-264fe92354f6c9107fb6eff40e8c4278.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

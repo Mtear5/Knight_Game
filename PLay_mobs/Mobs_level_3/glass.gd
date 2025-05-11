@@ -5,7 +5,7 @@ extends CharacterBody2D
 var position_player
 var diraction
 var player_dmg : int
-var damage : int = 10
+var damage : int = 20
 var health : int = 100
 var speed : int = 120
 var attack_on : bool = false
@@ -161,4 +161,3 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 	else:
 		state = IDLE
 		state = HIT
-	

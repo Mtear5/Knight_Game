@@ -404,7 +404,7 @@ collision_mask = 64
 position = Vector2(0, -1)
 
 [node name="CollisionShape2D" parent="AttackDirection/DamageBox/HitBox" index="0"]
-position = Vector2(13.25, -1)
+position = Vector2(16.0625, -1)
 disabled = true
 
 [node name="DetectPlayer" type="Area2D" parent="."]
