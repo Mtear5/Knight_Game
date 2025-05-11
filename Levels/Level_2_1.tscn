@@ -5482,10 +5482,13 @@ autoplay = true
 process_mode = 2
 visible = false
 
+[node name="Mobs" type="Node2D" parent="."]
+
 [connection signal="body_entered" from="Door_in_level_2_2" to="." method="_on_door_in_level_2_2_body_entered"]
 [connection signal="body_exited" from="Door_in_level_2_2" to="." method="_on_door_in_level_2_2_body_exited"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/Panel/VBoxContainer/Button" to="Pause_manager" method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/Panel/VBoxContainer/Button2" to="Pause_manager" method="_on_button_2_pressed"]
 
 [editable path="CharacterBody2D"]
+[editable path="CharacterBody2D/AttackDirection/DamageBox"]
 [editable path="CanvasLayer/PauseMenu"]

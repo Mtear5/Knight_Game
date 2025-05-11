@@ -1,12 +1,13 @@
 extends Node
 
 @onready var pause_menu = $"../CanvasLayer/PauseMenu"
+@onready var player = $"../CharacterBody2D"
 
 var pause_on : bool = false
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_cancel")  and !pause_on:
+	if Input.is_action_just_pressed("ui_cancel")  and !pause_on and player.dialog_play == false:
 		pause_on = !pause_on
 	
 	if pause_on:

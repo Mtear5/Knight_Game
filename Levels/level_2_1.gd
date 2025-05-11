@@ -5,6 +5,7 @@ extends Node2D
 @onready var object_f = $F
 
 var door_ch : bool = false # Детектор для нахождение в области двери
+var skelet_preload = preload("res://PLay_mobs/Mobs_level_2/skelet.tscn")
 
 
 func _ready() -> void:
@@ -12,6 +13,22 @@ func _ready() -> void:
 	
 	var tween_music_start = get_tree().create_tween()
 	tween_music_start.tween_property(music, "volume_db", -20.0, 4)
+	
+	var skelet_1 = skelet_preload.instantiate()
+	var skelet_2 = skelet_preload.instantiate()
+	var skelet_3 = skelet_preload.instantiate()
+	var skelet_4 = skelet_preload.instantiate()
+	
+	skelet_1.position = Vector2 (354, 547)
+	skelet_2.position = Vector2 (783, 547)
+	skelet_3.position = Vector2 (760, 386)
+	skelet_4.position = Vector2 (348, 403)
+	
+	$Mobs.add_child(skelet_1)
+	$Mobs.add_child(skelet_2)
+	$Mobs.add_child(skelet_3)
+	$Mobs.add_child(skelet_4)
+	
 	await tween_music_start.finished
 
 
