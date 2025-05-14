@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=4 uid="uid://my16rmmc2bj0"]
+[gd_scene load_steps=15 format=4 uid="uid://my16rmmc2bj0"]
 
 [ext_resource type="Script" path="res://Levels/level_4_3.gd" id="1_bb5mj"]
 [ext_resource type="Texture2D" uid="uid://dyo84n5rtqx7n" path="res://Assets/Dungeon Tile Set/Dungeon Tile Set.png" id="1_mpve2"]
 [ext_resource type="PackedScene" uid="uid://bdcc240cp418t" path="res://Player/player.tscn" id="2_ylly7"]
 [ext_resource type="AudioStream" uid="uid://q2qdyqs7baom" path="res://Assets/Music_lavel_4/Саундтрек для DnD — Эпическая боевая 2 (www.lightaudio.ru).mp3" id="4_06hkx"]
 [ext_resource type="PackedScene" uid="uid://btkqoxg16kic8" path="res://PLay_mobs/Mobs_level_4/demon.tscn" id="5_ws5o5"]
+[ext_resource type="Script" path="res://Levels/pause_manager.gd" id="6_qfry0"]
+[ext_resource type="PackedScene" uid="uid://cpfr53sg4luo7" path="res://Pause_menu/pause_menu.tscn" id="7_hodnm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w3lcc"]
 texture = ExtResource("1_mpve2")
@@ -486,7 +488,20 @@ shape = SubResource("RectangleShape2D_hge88")
 [node name="Demon" parent="Mobs" instance=ExtResource("5_ws5o5")]
 position = Vector2(491, 560)
 
+[node name="Pause_manager" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("6_qfry0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("7_hodnm")]
+process_mode = 2
+visible = false
+
 [connection signal="body_entered" from="StartDialog" to="." method="_on_start_dialog_body_entered"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/Panel/VBoxContainer/Button" to="Pause_manager" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/Panel/VBoxContainer/Button2" to="Pause_manager" method="_on_button_2_pressed"]
 
 [editable path="CharacterBody2D"]
 [editable path="CharacterBody2D/AttackDirection/DamageBox"]
+[editable path="CanvasLayer/PauseMenu"]
